@@ -19,7 +19,6 @@ def updatelistbox():
     for task in tasks:
         task_listbox.insert("end", f"{task}")
 
-
 def addTasks():
     task = inputBar.get().strip()
     if task:
@@ -34,9 +33,6 @@ def addTasks():
             option_1="Cancel",
             option_2="Retry",
         )
-        if msg.get() == "Retry":
-            addTasks()
-
 
 def deleteTasks():
     selected_index = task_listbox.curselection()
@@ -63,7 +59,6 @@ def deleteTasks():
             option_1="Cancel",
         )
 
-
 def updatetasks():
 
     selected_item_text = task_listbox.get(tk.ACTIVE)
@@ -89,10 +84,8 @@ def updatetasks():
             option_1="Cancel",
         )
 
-
 def exits():
     app.destroy()
-
 
 label = ctk.CTkLabel(app, text="TO-DO-LIST", font=("verdana", 16))
 label.pack()
