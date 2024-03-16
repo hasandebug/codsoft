@@ -19,6 +19,7 @@ def updatelistbox():
     for task in tasks:
         task_listbox.insert("end", f"{task}")
 
+
 def addTasks():
     task = inputBar.get().strip()
     if task:
@@ -34,16 +35,15 @@ def addTasks():
             option_2="Retry",
         )
 
+
 def deleteTasks():
     selected_index = task_listbox.curselection()
-    if selected_index:  # Check if an item is selected
-        selected_index = selected_index[
-            0
-        ]  # Get the first index from the selection (usually a single item)
+    if selected_index:
+        selected_index = selected_index[0]
         try:
-            tasks.pop(selected_index)  # Remove task at the selected index
+            tasks.pop(selected_index)
             updatelistbox()
-        except IndexError:  # Handle potential index out of range (optional)
+        except IndexError:
             msg = CTkMessagebox(
                 title="Warning!",
                 message="Invalid selection",
@@ -51,13 +51,14 @@ def deleteTasks():
                 option_1="Cancel",
             )
     else:
-        # Show warning message if no item is selected
+
         msg = CTkMessagebox(
             title="Warning!",
             message="Please select a task to remove",
             icon="warning",
             option_1="Cancel",
         )
+
 
 def updatetasks():
 
@@ -84,8 +85,10 @@ def updatetasks():
             option_1="Cancel",
         )
 
+
 def exits():
     app.destroy()
+
 
 label = ctk.CTkLabel(app, text="TO-DO-LIST", font=("verdana", 16))
 label.pack()
@@ -99,9 +102,6 @@ inputBar = ctk.CTkEntry(
     height=30,
 )
 inputBar.pack(side="top", pady=5)
-
-# newEntry = ctk.CTkEntry(app, placeholder_text="Enter updated task")
-# newEntry.pack(pady=5)
 
 addTaskBtn = ctk.CTkButton(
     app, text="Add Task", command=addTasks, border_color="black", text_color="black"
